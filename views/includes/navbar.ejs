@@ -1,0 +1,92 @@
+<nav class="nav-bar">
+  <a href="/courses">
+    <img src="/assets/dark-brand-logo.svg" class="brand-logo"
+  /></a>
+  <a href="/courses" class="nav-element categories">Home</a>
+
+  <!-- search-bar -->
+  <div class="search">
+    <input type="text" class="search-bar" placeholder="Search for anything" />
+    <img src="/assets/search-icon.svg" class="search-icon" />
+  </div>
+  <% if (!currentUser) { %>
+  <a href="/signin" class="fa-bussiness nav-element"> Sign In</a>
+  <a href="/login" class="tech-on-fa nav-element"> Login</a>
+
+  <% } %> <% if (currentUser) { %>
+  <a href="/logout" class="user-learning nav-element">Logout</a>
+  <a href="/users/<%= currentUser._id %>/" class="fa-user-learning nav-element"
+    >My learning</a
+  >
+  <% } %>
+  <a href="/courses/new " class="nav-element">Create course</a>
+  <a href="/tutor" class="fa-teacher nav-element"
+    >Become Tutor
+    <div class="about-tutor-nav">
+      <p>
+        <strong>
+          Turn what you know into an opportunity and reach millions around the
+          world.
+        </strong>
+      </p>
+      <form action="" method="get">
+        <button class="btn btn-2"><strong>Learn more</strong></button>
+      </form>
+    </div>
+  </a>
+
+  <div class="icons">
+    <!-- <img src="/assets/insta.svg" alt="instagram" /> -->
+    <a href="#">
+      <img src="/assets/heart.svg" class="nav-icons" />
+    </a>
+    <a href="#">
+      <img src="/assets/booking-cart.svg" class="nav-icons" />
+    </a>
+    <a href="#">
+      <img src="/assets/reward.svg" class="nav-icons" />
+    </a>
+    <% if(currentUser) { %>
+    <a href="#" class="user-profile">
+      <abbr title="hello <%= currentUser.username %>">
+        <img src="/assets/user-profile.svg" class="nav-icons" />
+      </abbr>
+    </a>
+    <% } %> <% if(!currentUser) { %>
+    <a href="/signin" class="user-profile">
+      <img src="/assets/signin.svg" class="nav-icons" />
+    </a>
+    <% } %> <% if(currentUser) { %>
+    <div class="user-card">
+      <div class="user-details">
+        <img src="/assets/avatar-1.png" alt="profile-picture" />
+        <div class="additional-details">
+          <h3 class="username"><%= currentUser.username %></h3>
+          <p class="email"><%= currentUser.email %></p>
+        </div>
+      </div>
+      <hr />
+      <div class="account-details">
+        <a href="/users/<%= currentUser._id %>/">My learning</a>
+        <a href="/users/<%= currentUser._id %>/">My cart</a>
+        <a href="/users/<%= currentUser._id %>/">Whishlist</a>
+        <a href="/users/<%= currentUser._id %>/">Teach on FA</a>
+      </div>
+      <hr />
+      <div class="social-notifications">
+        <a class="notifications">Notifications</a>
+        <a class="messages">Messages</a>
+        <hr />
+      </div>
+
+      <div class="account-tools">
+        <a href="#">Account settings</a>
+        <a href="#">Payment methods</a>
+        <a href="#">Subscriptions</a>
+        <a href="#">FA creadits</a>
+        <a href="#">Purchase history</a>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</nav>

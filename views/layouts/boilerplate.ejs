@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Future &dash; Academy | Future of Learning</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/rating.css" />
+    <link rel="stylesheet" href="/css/fontawsome.css" />
+
+    <link
+      rel="shortcut icon"
+      href="/assets/l-favicon.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <%- include('../includes/navbar.ejs') %>
+
+    <main class="container">
+      <%- include('../includes/flash.ejs') %> <%- body %>
+    </main>
+
+    <%- include('../includes/footer.ejs') %>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

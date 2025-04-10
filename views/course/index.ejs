@@ -1,0 +1,177 @@
+<%- layout("/layouts/boilerplate") %>
+<body>
+  <section class="hero-pg">
+    <div class="hero-section">
+      <img src="/assets/index-banner2.jpg" alt="" />
+      <div class="card">
+        <div class="card-title"><h1>Learning that gets you</h1></div>
+        <p>Skill for you present (and for future). Get started with us.</p>
+      </div>
+    </div>
+    <% if(currentUser && currentUser.courses.length) { %>
+    <div class="courses-dash-board">
+      <h1>Lets start Learning</h1>
+      <a href="users/<%= currentUser._id %>" class="link"
+        ><strong>My learning</strong></a
+      >
+      <div class="my-courses-cards">
+        <div class="card">
+          <div class="card-image">
+            <img src="/assets/avatar-1.png" alt="" />
+          </div>
+          <div class="card-details">
+            <h3 class="course-title">Course title</h3>
+            <p><strong>1.</strong> Lecture number</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="/assets/avatar-2.png" alt="" />
+          </div>
+          <div class="card-details">
+            <h3 class="course-title">Course title</h3>
+            <p><strong>1.</strong> Lecture number</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">
+            <img src="/assets/avatar-3.png" alt="" />
+          </div>
+          <div class="card-details">
+            <h3 class="course-title">Course title</h3>
+            <p><strong>1.</strong> Lecture number</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% } %>
+
+    <div class="banner closing-banner">
+      <p>
+        <strong>Training 5 or more peolpe?</strong> Get your team access to
+        Future Academy with 10k+ premium courses.
+      </p>
+      <div class="btns">
+        <form action="/tutor" method="get">
+          <button class="btn bsns-btn glowing-btn">Get AF Bussiness</button>
+        </form>
+        <button class="btn closing-banner-btn">Dissmiss</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="pg-1">
+    <% if(currentUser) { %>
+    <div class="pg-1-hero-heading">
+      <h1>What to learn next</h1>
+      <h2>our top pick for you</h2>
+    </div>
+    <% } %> <% if(!currentUser) { %>
+    <div class="pg-1-hero-heading">
+      <h1>Best Seller</h1>
+      <h2>Most watched course</h2>
+    </div>
+    <% } %>
+    <div class="card">
+      <div class="card-image">
+        <img src="/assets/english-course.jpg" alt="" />
+      </div>
+      <div class="card-details">
+        <div class="card-title">
+          <h3>English Vocabulary GRE | TOEFL | GMAT | CAT | IELTS</h3>
+        </div>
+        <div class="card-description">
+          English Vocabulary - Super fast method GRE | TOEFL | GMAT | CAT |
+          IELTS
+        </div>
+        <div class="card-author"><p>By Jackson Kailath</p></div>
+        <div class="card-update">
+          <p>
+            <span>Update <strong>April-2024</strong></span> . 11 Total hours .
+            24 Lectures . All levels
+          </p>
+        </div>
+        <div class="btn card-feature"><a href="#">Best seller</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pg-2">
+    <div class="card-row-1 card-row">
+      <% if(currentUser) { %>
+      <h2>Recomended for you</h2>
+      <% } %> <% if(!currentUser) { %>
+      <h2>High demand content</h2>
+      <% } %>
+
+      <div class="recommended-course-cards">
+        <% for(course of courses) { %>
+        <a href="/courses/<%= course._id %>" class="card-links">
+          <div class="card" type="button">
+            <div class="card-image">
+              <img src="<%= course.image %>" alt="" />
+            </div>
+            <div class="card-title">
+              <h4><%= course.title %></h4>
+            </div>
+            <div class="card-author">
+              <p><strong><%= course.description %></strong></p>
+            </div>
+            <div class="card-reviews">
+              <p><strong>4.2</strong>&starf;&starf;&starf;&starf;&star; 4.2</p>
+            </div>
+          </div>
+        </a>
+        <% } %>
+      </div>
+    </div>
+
+    <div class="card-row-2 card-row">
+      <h2>Popular for Full Stack Web Developer</h2>
+      <div class="recommended-course-cards">
+        <% for(course of courses) { %>
+        <a href="/courses/<%= course._id %>" class="card-links">
+          <div class="card" type="button">
+            <div class="card-image">
+              <img src="<%= course.image %>" alt="" />
+            </div>
+            <div class="card-title">
+              <h4><%= course.title %></h4>
+            </div>
+            <div class="card-author">
+              <p><strong><%= course.description %></strong></p>
+            </div>
+            <div class="card-reviews">
+              <p><strong>4.2</strong>&starf;&starf;&starf;&starf;&star; 4.2</p>
+            </div>
+          </div>
+        </a>
+        <% } %>
+      </div>
+    </div>
+
+    <div class="card-row-3 card-row">
+      <h2>Learners are viewing</h2>
+      <div class="recommended-course-cards">
+        <% for(course of courses) { %>
+        <a href="/courses/<%= course._id %>" class="card-links">
+          <div class="card" type="button" role="button">
+            <div class="card-image">
+              <img src="<%= course.image %>" alt="" />
+            </div>
+            <div class="card-title">
+              <h4><%= course.title %></h4>
+            </div>
+            <div class="card-author">
+              <p><strong><%= course.description %></strong></p>
+            </div>
+            <div class="card-reviews">
+              <p><strong>4.2</strong>&starf;&starf;&starf;&starf;&star; 4.2</p>
+            </div>
+          </div>
+        </a>
+        <% } %>
+      </div>
+    </div>
+  </section>
+</body>
